@@ -1,6 +1,6 @@
 /*
  *      Fecha: 29/08/2024
- *      Autor: Andrés Ignacio Zegales Taborga
+ *      Autor: AndrÃ©s Ignacio Zegales Taborga
  *      Matricula: A01711365
  */
 
@@ -116,7 +116,7 @@ void Sorts<T>::ordenaMerge(std::vector<T> &v) {
 
 template <class T>
 int Sorts<T>::busqSecuencial(std::vector<T> &v, int val) {
-	ordenaBurbuja(v); // Se asegura que el vector este ordenado
+	ordenaBurbuja(v); // Precondicion. Se asegura que el vector este ordenado
 	for (int i = 0; i < v.size(); i++){
         if (val == v[i]){
             return i;
@@ -128,7 +128,7 @@ int Sorts<T>::busqSecuencial(std::vector<T> &v, int val) {
 template <class T>
 int Sorts<T>::busqAux(std::vector<T> &v, int low, int high, int val) {
 	int mid = (high + low) / 2;
-	if (low <= high){  // Verifica si no está el elemento
+	if (low <= high){  // Verifica si no estÃ¡ el elemento
         if (v[mid] == val){ // Condicion base
             return mid;
         }
@@ -146,7 +146,7 @@ int Sorts<T>::busqAux(std::vector<T> &v, int low, int high, int val) {
 
 template <class T>
 int Sorts<T>::busqBinaria(std::vector<T> &v, int val) { // Funcion adecuada
-	ordenaBurbuja(v);
+	ordenaBurbuja(v); // Precondicion. Se asegura que el vector este ordenado
 	return busqAux(v, 0, v.size()-1, val);
 }
 #endif /* SORTS_H_ */
