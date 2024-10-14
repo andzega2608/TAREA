@@ -1,7 +1,9 @@
 /*
- *      Fecha: 20/09/2024
- *      Autor: Andrés Ignacio Zegales Taborga
- *      Matricula: A01711365
+ * Tarea #3
+ *
+ * Fecha: 20/09/2024
+ * Autor: AndrÃ©s Ignacio Zegales Taborga
+ * Matricula: A01711365
  */
 
 #ifndef LIST_H_
