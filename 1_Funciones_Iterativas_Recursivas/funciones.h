@@ -2,7 +2,7 @@
  * Tarea #1
  *
  * Fecha: 16/08/2024
- * Autor: Andres Zegales
+ * Autor: Andres Ignacio Zegales Taborga
  * Matricula: A01711365
 */
 
