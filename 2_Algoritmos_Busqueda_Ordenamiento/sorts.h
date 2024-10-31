@@ -1,9 +1,10 @@
 /*
- *  Tarea #2
- *  Fecha: 29/08/2024
- *  Autor: Andrés Ignacio Zegales Taborga
- *  Matricula: A01711365
- */
+ * Tarea #2
+ *
+ * Fecha: 29/08/2024
+ * Autor: Andres Zegales
+ * Matricula: A01711365
+*/
 
 #ifndef SORTS_H_
 #define SORTS_H_
