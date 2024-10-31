@@ -8,3 +8,7 @@ Los cambios que puedes esperar son:
 el manejo de excepciones, 
 los casos de prueba, 
 los formatos de entrada y salida de algunas funciones.
+
+## Cambios realizados
+
+No se ha realizado ningún cambio desde la entrega en la plataforma de Canvas esto debido a que todo programa ha funcionado correctamente y sin ningún problema. 
