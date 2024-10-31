@@ -38,14 +38,22 @@ public:
     int levelamI(T, int);
 	friend class BST<T>;
 };
-
+// Constructor por default
 template <class T>
 TreeNode<T>::TreeNode(T val) : value(val), left(0), right(0) {}
-
+// Constructor por parámetros
 template <class T>
 TreeNode<T>::TreeNode(T val, TreeNode<T> *le, TreeNode<T> *ri)
 	: value(val), left(le), right(ri) {}
-
+/*
+* add(T val)
+*
+* Crea una nuevo nodo y lo agrega al arbol que ordena los nodos
+* acorde al valor
+*
+* param T val
+* @return
+*/
 template <class T>
 void TreeNode<T>::add(T val) {
 	if (val < value) {
@@ -62,7 +70,14 @@ void TreeNode<T>::add(T val) {
 		}
 	}
 }
-
+/*
+* find(T val)
+*
+* Busca dentro del arbol y revisa la ubicacion donde está ese nodo
+*
+* param T val
+* return true o false
+*/
 template <class T>
 bool TreeNode<T>::find(T val) {
 	if (val == value) {
@@ -73,7 +88,15 @@ bool TreeNode<T>::find(T val) {
 		return (right != 0 && right->find(val));
 	}
 }
-
+/*
+* inorder(std::stringstream &aux) const
+*
+* Concatena el árbol, en un stringstream y lo ordena
+* acorde a inorder
+*
+* param stringstream &aux
+* @return
+*/
 template <class T>
 void TreeNode<T>::inorder(std::stringstream &aux) const {
 	if (left != 0) {
@@ -87,7 +110,15 @@ void TreeNode<T>::inorder(std::stringstream &aux) const {
 		right->inorder(aux);
 	}
 }
-
+/*
+* preorder(std::stringstream &aux) const
+*
+* Concatena el árbol, en un stringstream y lo ordena
+* acorde a preorder
+*
+* param stringstream &aux
+* @return
+*/
 template <class T>
 void TreeNode<T>::preorder(std::stringstream &aux) const {
 	aux << value;
@@ -100,7 +131,15 @@ void TreeNode<T>::preorder(std::stringstream &aux) const {
 		right->preorder(aux);
 	}
 }
-
+/*
+* postorder(std::stringstream &aux) const
+*
+* Concatena el árbol, en un stringstream y lo ordena
+* acorde a postorder
+*
+* param stringstream &aux
+* @return
+*/
 template <class T>
 void TreeNode<T>::postorder(std::stringstream &aux) const {
     if (left != 0) {
@@ -111,7 +150,15 @@ void TreeNode<T>::postorder(std::stringstream &aux) const {
 	}
 	aux << value << " ";
 }
-
+/*
+* level(std::stringstream &aux)
+*
+* Concatena el árbol, en un stringstream y lo ordena
+* acorde a los nivel de cada nodo
+*
+* param stringstream &aux
+* @return
+*/
 template <class T>
 void TreeNode<T>::level(std::stringstream &aux) {
     int n_level = n_height();
@@ -119,7 +166,14 @@ void TreeNode<T>::level(std::stringstream &aux) {
         aux_level(aux, i);
     }
 }
-
+/*
+* aux_level(std::stringstream &aux, int level)
+*
+* Concatena solo los nodos que se encuentran en nicho nivel especificado
+*
+* param stringstream &aux, int level
+* @return
+*/
 template <class T>
 void TreeNode<T>::aux_level(std::stringstream &aux, int level) {
     if (level == 1) {
@@ -132,7 +186,14 @@ void TreeNode<T>::aux_level(std::stringstream &aux, int level) {
         right->aux_level(aux, level - 1);
     }
 }
-
+/*
+* ancestors(T val, std::stringstream &aux)
+*
+* Concatena los ancestros de un nodo en específico
+*
+* param T val, std::stringstream &aux
+* @return
+*/
 template <class T>
 void TreeNode<T>::ancestors(T val, std::stringstream &aux) {
 	if (val < value && left != 0){
@@ -144,7 +205,14 @@ void TreeNode<T>::ancestors(T val, std::stringstream &aux) {
         right->ancestors(val, aux);
     }
 }
-
+/*
+* n_height()
+*
+* Retorna la profundidad máxima del árbol
+*
+* @param
+* return profundidad máxima
+*/
 template <class T>
 int TreeNode<T>::n_height(){
     if (left == 0 && right == 0){
@@ -165,7 +233,14 @@ int TreeNode<T>::n_height(){
         return ri;
     }
 }
-
+/*
+* levelamI(T val, int nivel)
+*
+* Indica en que nivel esta el nodo que se quiere buscar
+*
+* param T val, int nivel
+* return nivel donde se encuentra el nodo
+*/
 template <class T>
 int TreeNode<T>::levelamI(T val, int nivel) {
     if (val == value){
@@ -197,15 +272,29 @@ public:
 	std::string ancestors(T);
 	int whatlevelamI(T);
 };
-
+// Constructor por default
 template <class T>
 BST<T>::BST() : root(0) {}
-
+/*
+* empty() const
+*
+* Revisa si el arbol esta vacio
+*
+* @param
+* return true o false
+*/
 template <class T>
 bool BST<T>::empty() const {
 	return (root == 0);
 }
-
+/*
+* add(T val)
+*
+* Añade el valor en el lugar correspondiente
+*
+* param T val
+* @return
+*/
 template<class T>
 void BST<T>::add(T val) {
 	if (root != 0) {
@@ -216,7 +305,14 @@ void BST<T>::add(T val) {
 		root = new TreeNode<T>(val);
 	}
 }
-
+/*
+* find(T val)
+*
+* Busca el valor corresponediente
+*
+* param T val
+* return true o false
+*/
 template <class T>
 bool BST<T>::find(T val) const {
 	if (root != 0) {
@@ -225,7 +321,14 @@ bool BST<T>::find(T val) const {
 		return false;
 	}
 }
-
+/*
+* inorder()
+*
+* Devuelve un string con los nodos concatenados
+*
+* @param
+* return string concatenado
+*/
 template <class T>
 std::string BST<T>::inorder() const {
 	std::stringstream aux;
@@ -236,7 +339,14 @@ std::string BST<T>::inorder() const {
 	aux << "]";
 	return aux.str();
 }
-
+/*
+* preorder()
+*
+* Devuelve un string con los nodos concatenados
+*
+* @param
+* return string concatenado
+*/
 template <class T>
 std::string BST<T>::preorder() const {
 	std::stringstream aux;
@@ -247,7 +357,14 @@ std::string BST<T>::preorder() const {
 	aux << "]";
 	return aux.str();
 }
-
+/*
+* postorder()
+*
+* Devuelve un string con los nodos concatenados
+*
+* @param
+* return string concatenado
+*/
 template <class T>
 std::string BST<T>::postorder() const {
 	std::stringstream aux;
@@ -262,7 +379,14 @@ std::string BST<T>::postorder() const {
 	aux << "]";
 	return aux.str();
 }
-
+/*
+* level()
+*
+* Devuelve un string con los nodos concatenados
+*
+* @param
+* return string concatenado
+*/
 template <class T>
 std::string BST<T>::level() const {
 	std::stringstream aux;
@@ -277,14 +401,29 @@ std::string BST<T>::level() const {
 	aux << "]";
 	return aux.str();
 }
-
+/*
+* visit()
+*
+* Devuelve un string con los despliegues, es decir, inorder
+* preorder, postorder y level
+*
+* @param
+* return string concatenado
+*/
 template <class T>
 std::string BST<T>::visit() {
     std::stringstream aux;
     aux << preorder() << "\n" << inorder() << "\n" << postorder() << "\n" << level();
     return aux.str();
 }
-
+/*
+* heigh()
+*
+* Devuelve un entero con la profundida maxima
+*
+* @param
+* return profundidad maxima
+*/
 template <class T>
 int BST<T>::height(){
     if(!empty()){
@@ -294,7 +433,14 @@ int BST<T>::height(){
         return 0;
     }
 }
-
+/*
+* ancestor()
+*
+* Devuelve un string con los ancestros de un nodo concatenados
+*
+* @param
+* return string concatenado
+*/
 template <class T>
 std::string BST<T>::ancestors(T val){
 	std::stringstream aux;
@@ -312,7 +458,14 @@ std::string BST<T>::ancestors(T val){
 	aux << "]";
 	return aux.str();
 }
-
+/*
+* whatlevelamI()
+*
+* Devuelve un entero indicando en que nivel se encuentra dicho valor
+*
+* param T val
+* return entero donde se encuentra dicho valor
+*/
 template <class T>
 int BST<T>::whatlevelamI(T val){
     if (!empty()){
