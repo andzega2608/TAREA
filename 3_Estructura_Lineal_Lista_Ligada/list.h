@@ -27,12 +27,13 @@ class Link {
 // Constructor por default
 template <class T>
 Link<T>::Link(T val) : value(val), next(0) {}
-// Constructor por valores
+// Constructor por parámetros
 template <class T>
 Link<T>::Link(T val, Link* nxt) : value(val), next(nxt) {}
 // Constructor por copia
 template <class T>
-Link<T>::Link(const Link<T> &source) : value(source.value), next(source.next) {}
+Link<T>::Link(const Link<T> &source) : value(source.value), 
+	next(source.next) {}
 
 template <class T>
 class List {
