@@ -2,17 +2,24 @@
  * Tarea #1
  *
  * Fecha: 16/08/2024
- * Autor: Andres Ignacio Zegales Taborga
+ * Autor: Andres Zegales
  * Matricula: A01711365
 */
 
 #ifndef FUNCIONES_H_
 #define FUNCIONES_H_
-#include <iostream>
 
 class Funciones {
     public:
-        // O(n) en todos los casos el ciclo se repite n veces
+        /*
+        * sumaIterativa(int n)
+        *
+        * Suma de manera iterada con un ciclo for
+        * O(n) en todos los casos el ciclo se repite n veces
+        *
+        * param número entero
+        * return suma iterativa
+        */
         int sumaIterativa(int n){
             long suma = 0;
             if (n > 0){
@@ -25,7 +32,16 @@ class Funciones {
                 return 0;
             }
         }
-        // O(n) recursion de cabeza
+        /*
+        * sumaRecursiva(int n)
+        *
+        * Suma de manera recursiva donde el caso es hasta
+        * que el número sea igual a cero
+        * O(n) recursion de cabeza
+        *
+        * param número entero
+        * return suma iterativa
+        */
         int sumaRecursiva(int n){
             if (n == 0){
                 return 0;
@@ -34,7 +50,15 @@ class Funciones {
                 return n + sumaRecursiva(n-1);
             }
         }
-        // O(1) en todos los casos solo se realiza una instruccion
+        /*
+        * sumaRecursiva(int n)
+        *
+        * Suma de manera directa implementando una fórmula
+        * O(1) en todos los casos solo se realiza una instruccion
+        *
+        * param número entero
+        * return suma iterativa
+        */
         int sumaDirecta(int n){
             if (n > 0){
                 return n * (n + 1) / 2;
