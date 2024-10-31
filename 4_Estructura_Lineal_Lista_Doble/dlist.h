@@ -25,15 +25,17 @@ class DLink {
         DLink<T> *next;
         friend class DList<T>;
 };
-
+// Constructor por default
 template <class T>
 DLink<T>::DLink(T val) : value(val), previous(0), next(0) {}
-
+// Constructor por parametros
 template <class T>
-DLink<T>::DLink(T val, DLink *prev, DLink* nxt) : value(val), previous(prev), next(nxt) {}
-
+DLink<T>::DLink(T val, DLink *prev, DLink* nxt) : value(val),
+    previous(prev), next(nxt) {}
+// Constructor por copia
 template <class T>
-DLink<T>::DLink(const DLink<T> &source) : value(source.value), previous(source.previous), next(source.next) {}
+DLink<T>::DLink(const DLink<T> &source) : value(source.value),
+    previous(source.previous), next(source.next) {}
 
 template <class T>
 class DList {
@@ -50,10 +52,18 @@ class DList {
         void update(int index, T val);
         void deleteAt (int index);
 };
-
+// Constructor por default
 template <class T>
 DList<T>::DList() : head(0), tail(0), size(0) {}
-
+/*
+* std::string DList<T>::toStringForward() const
+*
+* Retorna un string con los valores de cada nodo dentro
+* de la lista doblemente enlazada por delante
+*
+* param
+* @return string de valores
+*/
 template <class T>
 std::string DList<T>::toStringForward() const {
 	std::stringstream aux;
@@ -70,7 +80,15 @@ std::string DList<T>::toStringForward() const {
 	aux << "]";
 	return aux.str();
 }
-
+/*
+* std::string DList<T>::toStringBackward() const
+*
+* Retorna un string con los valores de cada nodo dentro
+* de la lista doblemente enlazada por atras
+*
+* param
+* @return string de valores
+*/
 template <class T>
 std::string DList<T>::toStringBackward() const {
 	std::stringstream aux;
@@ -87,6 +105,14 @@ std::string DList<T>::toStringBackward() const {
 	aux << "]";
 	return aux.str();
 }
+/*
+* void insertion(T val)
+*
+* Inserta el valor al final de la lista doblemente enlazada
+*
+* param T val
+* @return
+*/
 
 template <class T>
 void DList<T>::insertion(T val){
@@ -102,7 +128,15 @@ void DList<T>::insertion(T val){
     }
     size ++;
 }
-
+/*
+* int search(T val)
+*
+* Retorna el valor del indice del valor dentro de la
+* lista, si no se encuentra el valor, retorna -1
+*
+* param T val
+* @return indice del valor dentro de la lista
+*/
 template <class T>
 int DList<T>::search(T val){
     int c1 = 0;
@@ -123,7 +157,14 @@ int DList<T>::search(T val){
     }
     return -1;
 }
-
+/*
+* void update(int index, T val)
+*
+* Cambia el valor de un dato dentro de la lista acorde a su indice
+*
+* param indice del elemento dentro de la lista y su valor a cambiar
+* @return
+*/
 template <class T>
 void DList<T>::update(int index, T val){
     DLink<T> *p; int c;
@@ -146,7 +187,14 @@ void DList<T>::update(int index, T val){
     }
     p->value = val;
 }
-
+/*
+* void deleteAt(int index)
+*
+* Elima el valor dentro de la lista acorde a su indice
+*
+* param indice del elemento a eliminar
+* @return
+*/
 template <class T>
 void DList<T>::deleteAt(int index){
     DLink<T> *p;
