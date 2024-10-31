@@ -413,7 +413,8 @@ std::string BST<T>::level() const {
 template <class T>
 std::string BST<T>::visit() {
     std::stringstream aux;
-    aux << preorder() << "\n" << inorder() << "\n" << postorder() << "\n" << level();
+    aux << preorder() << "\n" << inorder() << "\n" << postorder() 
+	    << "\n" << level();
     return aux.str();
 }
 /*
