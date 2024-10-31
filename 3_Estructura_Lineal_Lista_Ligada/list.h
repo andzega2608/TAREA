@@ -24,13 +24,13 @@ class Link {
         Link<T> *next;
         friend class List<T>;
 };
-
+// Constructor por default
 template <class T>
 Link<T>::Link(T val) : value(val), next(0) {}
-
+// Constructor por valores
 template <class T>
 Link<T>::Link(T val, Link* nxt) : value(val), next(nxt) {}
-
+// Constructor por copia
 template <class T>
 Link<T>::Link(const Link<T> &source) : value(source.value), next(source.next) {}
 
@@ -47,10 +47,17 @@ class List {
         void update(int index, T val);
         void deleteAt (int index);
 };
-
+// Constructor por default
 template <class T>
 List<T>::List() : head(0), size(0) {}
-
+/*
+* toString() const
+*
+* Concatena toda la lista en un string
+*
+* @param
+* return string
+*/
 template <class T>
 std::string List<T>::toString() const {
 	std::stringstream aux;
@@ -67,7 +74,14 @@ std::string List<T>::toString() const {
 	aux << "]";
 	return aux.str();
 }
-
+/*
+* insertion(T val)
+*
+* Inserta el elemento al inicio de la lista
+*
+* param valor a insertar
+* @return
+*/
 template <class T>
 void List<T>::insertion(T val){
     Link<T> *nuevo;
@@ -84,7 +98,15 @@ void List<T>::insertion(T val){
 	}
 	size++;
 }
-
+/*
+* search(T val)
+*
+* Busca el elemento dentro la lista
+*
+* param valor a buscar
+* return index donde se encuentra el elemento
+* -1 si no se encuentra
+*/
 template <class T>
 int List<T>::search(T val){
     int index = 0;
@@ -99,7 +121,14 @@ int List<T>::search(T val){
     }
     return -1;
 }
-
+/*
+* update(int index, T val)
+*
+* Cambia el valor de un elemento dentro de la lista
+*
+* param index y valor
+* @return
+*/
 template <class T>
 void List<T>::update(int index, T val){
     Link<T> *temp = head;
@@ -110,7 +139,14 @@ void List<T>::update(int index, T val){
     }
     temp->value = val;
 }
-
+/*
+* deleatAt(int index)
+*
+* Elimina un elemento acorde al index
+*
+* param index a eliminar
+* @return
+*/
 template <class T>
 void List<T>::deleteAt(int index){
     Link<T> *p = head;
