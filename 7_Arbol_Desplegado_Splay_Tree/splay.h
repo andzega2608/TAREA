@@ -1,7 +1,7 @@
 /*
  * Tarea #7
  *
- * Fecha: 31/10/2024
+ * Fecha: 02/11/2024
  * Autor: Andres Ignacio Zegales Taborga
  * Matricula: A01711365
 */
@@ -40,17 +40,17 @@ class Node {
 // Constructor por default
 template <class T>
 Node<T>::Node(T val) : value(val), left(0), right(0), parent(0) {}
-// Constructor por parámetros
+// Constructor por parÃ¡metros
 template <class T>
 Node<T>::Node(T val, Node<T> *le, Node<T> *ri, Node<T> *p)
 	: value(val), left(le), right(ri), parent(p) {}
 /*
 * add(T val)
 *
-* Añade el nuevo valor siguiendo las reglas de un BST
+* AÃ±ade el nuevo valor siguiendo las reglas de un BST
 *
 * param T val
-* return Node<T>* Puntero al nodo con el valor añadido
+* return Node<T>* Puntero al nodo con el valor aÃ±adido
 */
 template <class T>
 Node<T>* Node<T>::add(T val) {
@@ -104,7 +104,7 @@ Node<T>* Node<T>::find(T val) {
 /*
 * succesor()
 *
-* Encuentra el sucesor en el árbol
+* Encuentra el sucesor en el Ã¡rbol
 *
 * @param
 * return Node<T>* Puntero al sucesor del nodo actual
@@ -136,7 +136,7 @@ Node<T>* Node<T>::succesor() {
 * Elimina el nodo con el valor especificado
 *
 * param T val
-* return Node<T>* Nuevo árbol luego de la eliminación
+* return Node<T>* Nuevo Ã¡rbol luego de la eliminaciÃ³n
 */
 template <class T>
 Node<T>* Node<T>::remove(T val) {
@@ -194,10 +194,10 @@ void Node<T>::removeChilds() {
 /*
 * rot_right(Node<T>* x)
 *
-* Realiza una rotación a la derecha en el árbol
+* Realiza una rotaciÃ³n a la derecha en el Ã¡rbol
 *
-* param Node<T>* x nodo donde se realiza la rotación
-* return Node<T>* nuevo árbol luego de la rotación
+* param Node<T>* x nodo donde se realiza la rotaciÃ³n
+* return Node<T>* nuevo Ã¡rbol luego de la rotaciÃ³n
 */
 template <class T>
 Node<T>* Node<T>::rot_right(Node<T>* x){
@@ -221,10 +221,10 @@ Node<T>* Node<T>::rot_right(Node<T>* x){
 /*
 * rot_right(Node<T>* x)
 *
-* Realiza una rotación a la izquierda en el árbol
+* Realiza una rotaciÃ³n a la izquierda en el Ã¡rbol
 *
-* param Node<T>* x nodo donde se realiza la rotación
-* return Node<T>* nuevo árbol luego de la rotación
+* param Node<T>* x nodo donde se realiza la rotaciÃ³n
+* return Node<T>* nuevo Ã¡rbol luego de la rotaciÃ³n
 */
 template <class T>
 Node<T>* Node<T>::rot_left(Node<T>* x){
@@ -249,12 +249,12 @@ Node<T>* Node<T>::rot_left(Node<T>* x){
 * splay(Node<T>* root, Node<T>* x)
 *
 * Realiza las rotaciones de zig zig, zag zag, zig zag o zag ziz
-* con el fin de llevar el último valor añadido a la raíz o el
+* con el fin de llevar el Ãºltimo valor aÃ±adido a la raÃ­z o el
 * valor que se quiere buscar
 *
-* param Node<T>* root raíz inicial del árbol,
-* Node<T>* x nodo a llevar a la raíz
-* return Node<T>* nodo raíz tras las rotaciones
+* param Node<T>* root raÃ­z inicial del Ã¡rbol,
+* Node<T>* x nodo a llevar a la raÃ­z
+* return Node<T>* nodo raÃ­z tras las rotaciones
 */
 template <class T>
 Node<T>* Node<T>::splay(Node<T>* root, Node<T>* x){
@@ -291,7 +291,7 @@ Node<T>* Node<T>::splay(Node<T>* root, Node<T>* x){
 /*
 * inorder(std::stringstream &aux) const
 *
-* Recorre y concatena el árbol en inorden y almacena en aux
+* Recorre y concatena el Ã¡rbol en inorden y almacena en aux
 *
 * param std::stringstream &aux para almacenar el recorrido
 * @return
@@ -312,10 +312,10 @@ void Node<T>::inorder(std::stringstream &aux) const {
 /*
 * print_tree(std::stringstream &aux) const
 *
-* Imprime la estructura del árbol en aux
+* Imprime la estructura del Ã¡rbol en aux
 *
 * param std::stringstream &aux para almacenar la estructura
-* del árbol
+* del Ã¡rbol
 * @return
 */
 template <class T>
@@ -340,7 +340,7 @@ void Node<T>::print_tree(std::stringstream &aux) const {
 /*
 * preorder(std::stringstream &aux) const
 *
-* Concatena los valores del árbol acorde a preorder
+* Concatena los valores del Ã¡rbol acorde a preorder
 *
 * param std::stringstream &aux para almacenar los valores
 * @return
@@ -360,20 +360,19 @@ void Node<T>::preorder(std::stringstream &aux) const {
 
 template <class T>
 class SplayTree {
-private:
-	Node<T> *root;
-
-public:
-	SplayTree();
-	~SplayTree();
-	bool empty() const;
-	void add(T);
-	bool find(T);
-	void remove(T);
-	void removeAll();
-	std::string inorder() const;
-	std::string print_tree() const;
-	std::string preorder() const;
+    private:
+        Node<T> *root;
+    public:
+        SplayTree();
+        ~SplayTree();
+        bool empty() const;
+        void add(T);
+        bool find(T);
+        void remove(T);
+        void removeAll();
+        std::string inorder() const;
+        std::string print_tree() const;
+        std::string preorder() const;
 };
 // Constructor por default
 template <class T>
@@ -386,7 +385,7 @@ SplayTree<T>::~SplayTree() {
 /*
 * empty() const
 *
-* Revisa si el árbol está vacío
+* Revisa si el Ã¡rbol estÃ¡ vacÃ­o
 *
 * @param
 * return true o false
@@ -398,9 +397,9 @@ bool SplayTree<T>::empty() const {
 /*
 * add(T val)
 *
-* Añade el valor al árbol y luego realiza
-* las rotaciones para que el último valor se encuentre
-* en la raíz
+* AÃ±ade el valor al Ã¡rbol y luego realiza
+* las rotaciones para que el Ãºltimo valor se encuentre
+* en la raÃ­z
 *
 * param T val
 * @return
@@ -417,9 +416,9 @@ void SplayTree<T>::add(T val) {
 /*
 * remove(T val)
 *
-* Elimina el valor en el árbol y luego realiza
+* Elimina el valor en el Ã¡rbol y luego realiza
 * las rotaciones para que el padre del valor a eliminar
-* se encuentre en la raíz
+* se encuentre en la raÃ­z
 *
 * param T val
 * @return
@@ -427,59 +426,27 @@ void SplayTree<T>::add(T val) {
 template <class T>
 void SplayTree<T>::remove(T val) {
     if (root != 0) {
-        // Encuentra el nodo a eliminar
-        Node<T>* temp_remove = root->find(val);
-        if (temp_remove != 0) {
-            Node<T>* parent_remove = temp_remove->parent;
-            // Nodo sin hijos
-            if (temp_remove->left == 0 && temp_remove->right == 0) {
-                if (parent_remove != 0) {
-                    if (parent_remove->left == temp_remove) {
-                        parent_remove->left = 0;
-                    } else {
-                        parent_remove->right = 0;
-                    }
-                } else {
-                    root = 0; // El nodo es la raíz y no tiene hijos
-                }
-                delete temp_remove;
-            // Nodo con un hijo
-            } else if (temp_remove->left == 0 || temp_remove->right == 0) {
-                Node<T>* child;
-                if (temp_remove->left != 0) {
-                    child = temp_remove->left;
-                } else {
-                    child = temp_remove->right;
-                }
-                if (parent_remove != 0) {
-                    if (parent_remove->left == temp_remove) {
-                        parent_remove->left = child;
-                    } else {
-                        parent_remove->right = child;
-                    }
-                } else {
-                    root = child; // Nodo raíz con un solo hijo
-                }
-                child->parent = parent_remove;
-                delete temp_remove;
-            } else { // Nodo con dos hijos
-                // Encuentra el sucesor
-                Node<T>* successor = temp_remove->succesor();
-                // Copia el valor del sucesor
-                temp_remove->value = successor->value;
-                if (successor->parent->left == successor) {
-                    successor->parent->left = successor->right;
-                } else {
-                    successor->parent->right = successor->right;
-                }
-                if (successor->right != 0) {
-                    successor->right->parent = successor->parent;
-                }
-                delete successor;
+        if (val == root->value) {
+            Node<T> *succ = root->succesor();
+            if (succ != 0) {
+                succ->left = root->left;
+                succ->right = root->right;
+                succ->parent = 0;
+                if (succ->left)
+                    succ->left->parent = succ;
+                if (succ->right)
+                    succ->right->parent = succ;
             }
-            if (parent_remove != 0) {
-                // Splay en el padre del nodo eliminado
-                root = root->splay(root, parent_remove);
+            delete root;
+            root = succ;
+        } else {
+            Node<T>* p = root->find(val);
+            if (p != 0) {
+                Node<T>* parent = p->parent;
+                p = parent->remove(val);
+                if (p) {
+                    root = root->splay(root, p);
+                }
             }
         }
     }
@@ -487,7 +454,7 @@ void SplayTree<T>::remove(T val) {
 /*
 * removeAll()
 *
-* Limpia todo el árbol
+* Limpia todo el Ã¡rbol
 *
 * @param
 * @return
@@ -503,9 +470,9 @@ void SplayTree<T>::removeAll() {
 /*
 * find(T val)
 *
-* Busca el valor dentro del árbol y luego realiza
+* Busca el valor dentro del Ã¡rbol y luego realiza
 * las rotaciones para que el valor buscado se encuentre
-* en la raíz
+* en la raÃ­z
 *
 * param T val
 * return true o false
@@ -523,11 +490,11 @@ bool SplayTree<T>::find(T val){
 /*
 * inorder() const
 *
-* Concatena los valor del árbol dentro de un string
+* Concatena los valor del Ã¡rbol dentro de un string
 * acorde a inordder
 *
 * @param
-* return std::string concatenado de valores del árbol
+* return std::string concatenado de valores del Ã¡rbol
 */
 template <class T>
 std::string SplayTree<T>::inorder() const {
@@ -542,10 +509,10 @@ std::string SplayTree<T>::inorder() const {
 /*
 * print_tree() const
 *
-* Devuelve la estructura completa del árbol
+* Devuelve la estructura completa del Ã¡rbol
 *
 * @param
-* return std::string: estructura del árbol
+* return std::string: estructura del Ã¡rbol
 */
 template <class T>
 std::string SplayTree<T>::print_tree() const {
@@ -560,11 +527,11 @@ std::string SplayTree<T>::print_tree() const {
 /*
 * inorder() const
 *
-* Concatena los valor del árbol dentro de un string
+* Concatena los valor del Ã¡rbol dentro de un string
 * acorde a preordder
 *
 * @param
-* return std::string concatenado de valores del árbol
+* return std::string concatenado de valores del Ã¡rbol
 */
 template <class T>
 std::string SplayTree<T>::preorder() const {
